@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="108202313">
+  <component name="DataSourceManagerImpl" format="xml" hash="4077089036">
     <data-source source="LOCAL" name="Rails foosball: development" uuid="eafa0ccd-a01e-4789-869e-d816605a0e76">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:foos_dev</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails foosball: test" uuid="9c37ef1b-d732-4c84-9418-a93d190d854b">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:my_database_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails foosball: production" uuid="c9631401-37e9-4288-bf04-254abd582cdd">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:foos_prod</jdbc-url>
       <libraries />
     </data-source>
   </component>

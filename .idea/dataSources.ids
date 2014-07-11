@@ -6,4 +6,7 @@
   <data-source source="LOCAL" name="Rails foosball: test" uuid="9c37ef1b-d732-4c84-9418-a93d190d854b">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails foosball: production" uuid="c9631401-37e9-4288-bf04-254abd582cdd">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
