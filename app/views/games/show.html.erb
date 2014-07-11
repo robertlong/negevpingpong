@@ -1,0 +1,70 @@
+<h2><%= @game.player1.name %></h2>
+<table>
+  <col width="100">
+  <col width="100">
+  <col width="100">
+  <col width="100">
+  <col width="100">
+
+  <tr>
+    <th align="left">Rating</th>
+    <th align="left">Wins</th>
+    <th align="left">Losses</th>
+    <th align="left">Ratio</th>
+    <th align="left">Pro?</th>
+  </tr>
+
+  <tr>
+    <td><%= @game.player1.rating %></td>
+    <td><%= @game.player1.wins %></td>
+    <td><%= @game.player1.losses %></td>
+    <td><% if @game.player1.losses > 0 %>
+          <%= @game.player1.wins / @game.player1.losses %>
+      <% else %>
+          <%= "Undefeated" %>
+      <% end %>
+    </td>
+    <td><% if @game.player1.rating >= 2400 %>
+          <%= "Yes" %>
+      <% else %>
+          <%= "No" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<h2><%= @game.player2.name %></h2>
+<table>
+  <col width="100">
+  <col width="100">
+  <col width="100">
+  <col width="100">
+  <col width="100">
+
+  <tr>
+    <th align="left">Rating</th>
+    <th align="left">Wins</th>
+    <th align="left">Losses</th>
+    <th align="left">Ratio</th>
+    <th align="left">Pro?</th>
+  </tr>
+
+  <tr>
+    <td><%= @game.player2.rating %></td>
+    <td><%= @game.player2.wins %></td>
+    <td><%= @game.player2.losses %></td>
+    <td><% if @game.player2.losses > 0 %>
+          <%= @game.player2.wins / @game.player2.losses %>
+      <% else %>
+          <%= "Undefeated" %>
+      <% end %>
+    </td>
+    <td><% if @game.player2.rating >= 2400 %>
+          <%= "Yes" %>
+      <% else %>
+          <%= "No" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<br>
+<%= link_to 'Home', welcome_index_path %>
