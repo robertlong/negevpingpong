@@ -15,7 +15,7 @@
     <br>
     <p>
       <%= f.label :player1, 'Player 1' %><br>
-      <%= f.collection_select(:player1, Player.all, :id, :name) %>
+      <%= f.collection_select(:player1, Player.all, :id, :name, :selected => "1") %>
     </p>
     <p>
       <%= f.label :p1score, 'Player 1 Score'  %><br>
@@ -24,7 +24,7 @@
     <br>
     <p>
       <%= f.label :player2, 'Player 2' %><br>
-      <%= f.collection_select(:player2, Player.all, :id, :name) %>
+      <%= f.collection_select(:player2, Player.all, :id, :name, :selected => "2") %>
     </p>
     <p>
       <%= f.label :p2score, 'Player 2 Score'  %><br>

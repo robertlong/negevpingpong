@@ -1,10 +1,12 @@
 <h1>All Games</h1>
-
+<%= link_to 'Home', welcome_index_path %><br><br>
 <table>
-  <col width="150">
+  <col width="200">
   <col width="100">
-  <col width="150">
+  <col width="200">
   <col width="100">
+  <col width="50">
+  <col width="50">
   <tr>
     <th align="left">Player 1</th>
     <th align="left">Score</th>
@@ -18,8 +20,9 @@
         <td><%= game.p1score %></td>
         <td><%= game.player2.name %></td>
         <td><%= game.p2score %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Delete', game_path(game),
+                        method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>
-<br>
-<%= link_to 'Home', welcome_index_path %>

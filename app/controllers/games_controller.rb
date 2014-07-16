@@ -7,6 +7,33 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
+  def update
+    p1 = Player.find(params[:game][:player1])
+    p2 = Player.find(params[:game][:player2])
+    @game = Game.find(params[:id])
+    @game.player1 = p1
+    @game.player2 = p2
+
+    if @game.update(params[:game].permit(:p1score, :p2score))
+      Player.rerank
+      redirect_to @game
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @game = Game.find(params[:id])
+    @game.destroy
+    Player.rerank
+
+    redirect_to games_path
+  end
+
   def create
     p1 = Player.find(params[:game][:player1])
     p2 = Player.find(params[:game][:player2])
