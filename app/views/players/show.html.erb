@@ -1,15 +1,56 @@
-<h1><%= @player.name %></h1>
+<h2><%= @player.name %></h2>
+<table>
+  <col width="100">
+  <col width="100">
+  <col width="100">
+  <col width="100">
 
-<p>
-  <strong>Rating:</strong><br>
-  <%= @player.rating %>
-</p>
-<p>
-  <strong>Wins:</strong><br>
-  <%= @player.wins %>
-</p>
-<p>
-  <strong>Losses:</strong><br>
-  <%= @player.losses %>
-</p>
+  <tr>
+    <th align="left">Rating</th>
+    <th align="left">Wins</th>
+    <th align="left">Losses</th>
+    <th align="left">Ratio</th>
+  </tr>
+
+  <tr>
+    <td><%= @player.rating %></td>
+    <td><%= @player.wins %></td>
+    <td><%= @player.losses %></td>
+    <td><% if @player.losses > 0 %>
+          <%= (@player.wins.to_f / @player.losses.to_f).to_f.round(2) %>
+      <% else %>
+          <%= "Undefeated" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+<br>
+<h3 class="underline">Games Played</h3>
+<table class="my-info">
+  <col width="200">
+  <col width="100">
+  <col width="200">
+  <col width="100">
+  <col width="50">
+  <col width="50">
+  <tr>
+    <th align="left">Player 1</th>
+    <th align="left">Score</th>
+    <th align="left">Player 2</th>
+    <th align="left">Score</th>
+  </tr>
+
+  <% @player.games.each do |game| %>
+      <tr class="top-border">
+        <td><%= link_to game.player1.name, "/players/" + game.player1_id.to_s, :class => "no-show-link" %></td>
+        <td><%= game.p1score %></td>
+        <td><%= link_to game.player2.name, "/players/" + game.player2_id.to_s, :class => "no-show-link" %></td>
+        <td><%= game.p2score %></td>
+        <td><%= link_to 'Edit', edit_game_path(game) %></td>
+        <td><%= link_to 'Delete', game_path(game),
+                        method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+<br>
 <%= link_to 'Home', welcome_index_path %>

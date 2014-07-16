@@ -1,6 +1,6 @@
-<h2><%= @game.player1.name %></h2>
+<h2><%= link_to @game.player1.name, "/players/" + @game.player1_id.to_s, :class => "no-show-link" %></h2>
+<%= link_to 'Home', welcome_index_path %><br><br>
 <table>
-  <col width="100">
   <col width="100">
   <col width="100">
   <col width="100">
@@ -11,7 +11,6 @@
     <th align="left">Wins</th>
     <th align="left">Losses</th>
     <th align="left">Ratio</th>
-    <th align="left">Pro?</th>
   </tr>
 
   <tr>
@@ -19,22 +18,15 @@
     <td><%= @game.player1.wins %></td>
     <td><%= @game.player1.losses %></td>
     <td><% if @game.player1.losses > 0 %>
-          <%= @game.player1.wins / @game.player1.losses %>
+          <%= (@game.player1.wins.to_f / @game.player1.losses.to_f).to_f.round(2) %>
       <% else %>
           <%= "Undefeated" %>
       <% end %>
     </td>
-    <td><% if @game.player1.rating >= 2400 %>
-          <%= "Yes" %>
-      <% else %>
-          <%= "No" %>
-      <% end %>
-    </td>
   </tr>
 </table>
-<h2><%= @game.player2.name %></h2>
+<h2><%= link_to @game.player2.name, "/players/" + @game.player2_id.to_s, :class => "no-show-link" %></h2>
 <table>
-  <col width="100">
   <col width="100">
   <col width="100">
   <col width="100">
@@ -45,7 +37,6 @@
     <th align="left">Wins</th>
     <th align="left">Losses</th>
     <th align="left">Ratio</th>
-    <th align="left">Pro?</th>
   </tr>
 
   <tr>
@@ -53,18 +44,10 @@
     <td><%= @game.player2.wins %></td>
     <td><%= @game.player2.losses %></td>
     <td><% if @game.player2.losses > 0 %>
-          <%= @game.player2.wins / @game.player2.losses %>
+          <%= (@game.player2.wins.to_f / @game.player2.losses.to_f).to_f.round(2) %>
       <% else %>
           <%= "Undefeated" %>
       <% end %>
     </td>
-    <td><% if @game.player2.rating >= 2400 %>
-          <%= "Yes" %>
-      <% else %>
-          <%= "No" %>
-      <% end %>
-    </td>
   </tr>
 </table>
-<br>
-<%= link_to 'Home', welcome_index_path %>

@@ -2,14 +2,16 @@
 <%= link_to 'Home', welcome_index_path %><br><br>
 <%= link_to "Register a new player", new_player_path %><br><br>
 
-<table>
-  <col width="150">
+<table class="my-info">
+  <col width="40">
+  <col width="200">
   <col width="100">
   <col width="100">
   <col width="100">
   <col width="100">
   <col width="100">
   <tr>
+    <th></th>
     <th align="left">Name</th>
     <th align="left">Rating</th>
     <th align="left">Wins</th>
@@ -17,14 +19,15 @@
     <th align="left">Ratio</th>
   </tr>
 
-  <% @players.each do |player| %>
-      <tr>
-        <td><%= player.name %></td>
+  <% @players.each_with_index do |player, i| %>
+      <tr class="top-border">
+        <td><%= i + 1 %>.</td>
+        <td><%= link_to player.name, "players/" + player.id.to_s, :class => "no-show-link" %></td>
         <td><%= player.rating %></td>
         <td><%= player.wins %></td>
         <td><%= player.losses %></td>
         <td><% if player.losses > 0 %>
-              <%= player.wins / player.losses %>
+              <%= (player.wins.to_f / player.losses.to_f).to_f.round(2) %>
             <% else %>
               <%= "Undefeated" %>
             <% end %>

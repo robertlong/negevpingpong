@@ -2,6 +2,10 @@ class Player < ActiveRecord::Base
   has_many :games
   validates :name, presence: true, uniqueness: true
 
+  def games
+    Game.where("player1_id = ? OR player2_id = ?", id, id)
+  end
+
   def self.rerank
     Player.all.each do |p|
       p.wins = 0
