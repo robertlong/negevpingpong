@@ -40,7 +40,7 @@
     <th align="left">Score</th>
   </tr>
 
-  <% @player.games.each do |game| %>
+  <% @games.each do |game| %>
       <tr class="top-border">
         <td><%= link_to game.player1.name, "/players/" + game.player1_id.to_s, :class => "no-show-link" %></td>
         <td><%= game.p1score %></td>

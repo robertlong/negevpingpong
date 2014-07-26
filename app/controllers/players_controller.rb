@@ -19,5 +19,6 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @games = @player.games.sort_by { |p| p.created_at }.reverse
   end
 end
